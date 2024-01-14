@@ -6,7 +6,7 @@
 \geometry{a4paper,left=1cm,right=1cm,top=1.4cm,bottom=1cm}
 
 \usepackage{amsmath,amssymb,amsfonts}
-\usepackage{xcolor}
+\usepackage[svgnames]{xcolor}
 \usepackage{graphicx}  % for \resizebox
 \usepackage{arydshln}
 
@@ -34,90 +34,297 @@
 
 
 % IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+% \clearpage
 \vspace{30pt}
-\section{Preliminaries}
+\section{Instructions}
+
+
+
+% IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+% \clearpage
+\vspace{30pt}
+\section{Useful Transformations}
+
+
+
+% ======================
+\vspace{30pt}
+\subsection{Difference-Based Binary-Hypothesis Selector}
 
 \begin{itemize}
+    \item  Hypothesis
+    \begin{itemize}
 
-    \item  \textbf{hypothesis_truth}? \qquad
-        {\color{green} always\_leq}  \quad  |  \quad
-        {\color{red  } always\_geq}  \quad  |  \quad
-        {\color{red  } neither}  % \quad  |  \quad
+        % \item  \textbf{hypothesis:direction}? \qquad
+        %     {\color{gray}  ignored}      |
+        %     {\color{gray}  single\_side}  |
+        %     {\color{LimeGreen} eq}   |
+        %     {\color{red}   neq}  |
+        %     {\color{red}   leq}  |
+        %     {\color{red}   geq}  |
+        %     {\color{red}   le}   |
+        %     {\color{red}   ge}   |
 
-    \item  \textbf{hypothesis_direction}? \qquad
-        {\color{gray} ignored}      \quad  |  \quad
-        {\color{gray} single_side}  \quad  |  \quad
-        {\color{green} eq}   \quad  |  \quad
-        {\color{red  } neq}  \quad  |  \quad
-        {\color{red  } leq}  \quad  |  \quad
-        {\color{red  } geq}  \quad  |  \quad
-        {\color{red  } le}   \quad  |  \quad
-        {\color{red  } ge}   % \quad  |  \quad
+        % % \item  \textbf{\color{gray} hypothesis:variable\_side:variable}?
+        % %     {\color{gray} constant}  |
+        % %     {\color{LimeGreen} variable}  |
 
-    \item  \textbf{hypothesis_variable_side_variable}?
-        {\color{green} constant}  \quad  |  \quad
-        {\color{green} variable}  \quad  |  \quad
+        % \item  \textbf{hypothesis:variable\_side:range}? \qquad
+        %     {\color{LimeGreen} binary}   |
+        %     {\color{LimeGreen} integer}  |
+        %     {\color{LimeGreen} real}     |
 
-    \item  \textbf{hypothesis_variable_side_range}? \qquad
-        {\color{green} binary}   \quad  |  \quad
-        {\color{green} integer}  \quad  |  \quad
-        {\color{green} real}     \quad  |  \quad
+        % % \item  \textbf{\color{gray} hypothesis:constant\_side:variable}?
+        % %     {\color{LimeGreen} constant}  |
+        % %     {\color{gray}  variable}  |
+            
+        % \item  \textbf{hypothesis:constant\_side:range}? \qquad
+        %     {\color{LimeGreen} binary}   |
+        %     {\color{red}   integer}  |
+        %     {\color{red}   real}     |
 
-    \item  \textbf{hypothesis_constant_side_variable}?
-        {\color{green} constant}  \quad  |  \quad
-        {\color{gray} variable}  \quad  |  \quad
-        
-    \item  \textbf{hypothesis_constant_side_range}? \qquad
-        {\color{green} binary}   \quad  |  \quad
-        {\color{green} integer}  \quad  |  \quad
-        {\color{green} real}     \quad  |  \quad
+        % \item  \textbf{hypothesis:truth}? \qquad
+        %     {\color{LimeGreen} always\_leq}  |
+        %     {\color{red}   always\_geq}  |
+        %     {\color{red}   neither}  |
 
+        % =============
 
+        \item  \textbf{hypothesis:variable\_side:range\_space}? \qquad
+            {\color{LimeGreen} binary}  |
+            {\color{red}   linearly\_separable}  |
+            {\color{red}   neither}  |
 
-    \item  \textbf{conclusion_direction}? \qquad
-        {\color{red} ignored}      \quad  |  \quad
-        {\color{red} single_side}  \quad  |  \quad
-        {\color{green} eq}   \quad  |  \quad
-        {\color{red  } neq}  \quad  |  \quad
-        {\color{red  } leq}  \quad  |  \quad
-        {\color{red  } geq}  \quad  |  \quad
-        {\color{red  } le}   \quad  |  \quad
-        {\color{red  } ge}   % \quad  |  \quad
+    \end{itemize}
 
-    \item  \textbf{conclusion_L_side_variable}?
-        {\color{green} constant}  \quad  |  \quad
-        {\color{green} variable}  \quad  |  \quad
+    \item  Conclusion  % for Each Case
+    \begin{itemize}
 
-    \item  \textbf{conclusion_L_side_range}? \qquad
-        {\color{green} binary}   \quad  |  \quad
-        {\color{green} integer}  \quad  |  \quad
-        {\color{green} real}     \quad  |  \quad
+        \item  \textbf{conclusion:direction}? \qquad
+            % {\color{red}       ignored}      |
+            % {\color{LimeGreen} single\_side}  |
+            {\color{LimeGreen} only\_R\_side}  |
+            {\color{blue}      eq}   |
+            {\color{blue}      neq}  |
+            {\color{blue}      leq}  |
+            {\color{blue}      geq}  |
+            {\color{blue}      le}   |
+            {\color{blue}      ge}   |
 
-    \item  \textbf{conclusion_R_side_variable}?
-        {\color{green} constant}  \quad  |  \quad
-        {\color{green} variable}  \quad  |  \quad
+        \item  \textbf{\color{gray} conclusion:L\_side:variable}? \qquad
+            % {\color{LimeGreen} constant}  |
+            % {\color{LimeGreen} variable}  |
 
-    \item  \textbf{conclusion_R_side_range}? \qquad
-        {\color{green} binary}   \quad  |  \quad
-        {\color{green} integer}  \quad  |  \quad
-        {\color{green} real}     \quad  |  \quad
+        \item  \textbf{\color{gray} conclusion:L\_side:range}? \qquad
+            % {\color{LimeGreen} binary}   |
+            % {\color{LimeGreen} integer}  |
+            % {\color{LimeGreen} real}     |
 
+        % \item  \textbf{conclusion:R\_side:variable}? \qquad
+        %     {\color{LimeGreen} constant}  |
+        %     {\color{red}       variable}  |
+
+        \item  \textbf{conclusion:R\_side:$R_0$\_type}? \qquad \qquad \qquad \quad
+            {\color{red}       ignored}   |
+            {\color{LimeGreen} constant}  |
+            {\color{LimeGreen} variable}  |
+
+        \item  \textbf{conclusion:R\_side:$R_1$\_type}? \qquad \qquad \qquad \quad
+            {\color{red}       ignored}   |
+            {\color{LimeGreen} constant}  |
+            {\color{LimeGreen} variable}  |
+
+        \item  \textbf{conclusion:R\_side:$(R_0 - R_1)$\_type}? \qquad
+            {\color{red}       any\_ignored}   |
+            {\color{LimeGreen} constant}  |
+            {\color{red}       variable}  |
+
+        % \item  \textbf{conclusion:R\_side:range}? \qquad
+        %     {\color{LimeGreen} binary}   |
+        %     {\color{LimeGreen} integer}  |
+        %     {\color{LimeGreen} real}     |
+
+    \end{itemize}
 \end{itemize}
 
 
 \begin{equation}
     \begin{aligned}
         % \label{eq:}
+        % (\text{Some L\_side expression} \dots)
+        % (\text{Some comparison operator} \dots)
+        \text{\color{gray} ($L$)} \quad
+        \text{\color{gray} (compare)} \quad
         &
         \begin{cases}
-            L,  & x = 0  \\
-            R,  & x = 1  \\
+            R_0,  & (\mathbf{a}^T \mathbf{x} + b) = 0  \\
+            R_1,  & (\mathbf{a}^T \mathbf{x} + b) = 1  \\
         \end{cases}
         \\
+        & \Updownarrow
+        \\
+        % (\text{Some L\_side expression} \dots)
+        % (\text{Some comparison operator} \dots)
+        \text{\color{gray} ($L$)} \quad
+        \text{\color{gray} (compare)} \quad
         &
-        L + x \cdot R
+        R_0 + (\mathbf{a}^T \mathbf{x} + b) \cdot (R_1 - R_0)
     \end{aligned}
 \end{equation}
+
+
+
+
+
+
+% ======================
+\vspace{30pt}
+\subsection{Big-$M$-Based Binary-Hypothesis Selector}
+
+\begin{itemize}
+    \item  Hypothesis
+    \begin{itemize}
+
+        \item  \textbf{hypothesis:variable\_side:range\_space}? \qquad
+            {\color{LimeGreen} binary}  |
+            {\color{red}   linearly\_separable}  |
+            {\color{red}   neither}  |
+
+    \end{itemize}
+
+    \item  Conclusion  % for Each Case
+    \begin{itemize}
+
+
+        \item  \textbf{conclusion:direction}? \qquad
+            % {\color{red}       ignored}      |
+            % {\color{LimeGreen} single\_side}  |
+            {\color{red}       only\_R\_side}  |
+            {\color{blue}      eq}   |
+            {\color{red}       neq}  |
+            {\color{LimeGreen} leq}  |
+            {\color{blue}      geq}  |
+            {\color{red}       le}   |
+            {\color{red}       ge}   |
+
+                \begin{itemize}
+                    \item  {\color{blue}      geq}: using $\geq$ and $-|M|$ instead.
+                    \item  {\color{blue}      eq }: decomposing into one $\leq$ and one $\geq$.
+                \end{itemize}
+
+        \item  \textbf{\color{gray} conclusion:L\_side:variable}? \qquad
+            % {\color{LimeGreen} constant}  |
+            % {\color{LimeGreen} variable}  |
+
+        \item  \textbf{\color{gray} conclusion:L\_side:range}? \qquad
+            % {\color{LimeGreen} binary}   |
+            % {\color{LimeGreen} integer}  |
+            % {\color{LimeGreen} real}     |
+
+        % \item  \textbf{conclusion:R\_side:variable}? \qquad
+        %     {\color{LimeGreen} constant}  |
+        %     {\color{red}       variable}  |
+
+        \item  \textbf{conclusion:R\_side:$R_0$\_type}? \qquad \qquad \qquad \quad
+            {\color{blue}      ignored}   |
+            {\color{LimeGreen} constant}  |
+            {\color{LimeGreen} variable}  |
+
+        \item  \textbf{conclusion:R\_side:$R_1$\_type}? \qquad \qquad \qquad \quad
+            {\color{blue}      ignored}   |
+            {\color{LimeGreen} constant}  |
+            {\color{LimeGreen} variable}  |
+
+        \item  \textbf{conclusion:R\_side:$(R_0 - R_1)$\_type}? \qquad
+            {\color{blue}      any\_ignored}   |
+            {\color{Teal}      constant}  |
+            {\color{LimeGreen} variable}  |
+
+        % \item  \textbf{conclusion:R\_side:range}? \qquad
+        %     {\color{LimeGreen} binary}   |
+        %     {\color{LimeGreen} integer}  |
+        %     {\color{LimeGreen} real}     |
+
+    \end{itemize}
+\end{itemize}
+
+
+
+
+\begin{equation}
+    \begin{aligned}
+        % \label{eq:}
+        L
+        % =&
+        \leq &
+        \begin{cases}
+            R_0,  & (\mathbf{a}^T \mathbf{x} + b) = 0  \\
+            R_1,  & (\mathbf{a}^T \mathbf{x} + b) = 1  \\
+        \end{cases}
+        \\
+        & \Updownarrow
+        \\
+        % =========================
+        % &
+        % \begin{cases}
+        %     L
+        %     =
+        %     \begin{cases}
+        %         R_0           ,  & (\mathbf{a}^T \mathbf{x} + b) = 0  \\
+        %         \text{ignored},  & (\mathbf{a}^T \mathbf{x} + b) = 1  \\
+        %     \end{cases}
+        %     \\
+        %     L
+        %     =
+        %     \begin{cases}
+        %         \text{ignored},  & (\mathbf{a}^T \mathbf{x} + b) = 0  \\
+        %         R_1           ,  & (\mathbf{a}^T \mathbf{x} + b) = 1  \\
+        %     \end{cases}
+        %     \\
+        % \end{cases}
+        % \\
+        % & \Updownarrow
+        % \\
+        % =========================
+        % &
+        % \begin{cases}
+        L
+        % =&
+        \leq 
+        \begin{cases}
+            R_0           ,  & (\mathbf{a}^T \mathbf{x} + b) = 0  \\
+            \text{ignored},  & (\mathbf{a}^T \mathbf{x} + b) = 1  \\
+        \end{cases}
+        % \\
+        % \land &
+        % \\
+        \qquad & \land \qquad
+        L
+        % =&
+        \leq 
+        \begin{cases}
+            \text{ignored},  & (\mathbf{a}^T \mathbf{x} + b) = 0  \\
+            R_1           ,  & (\mathbf{a}^T \mathbf{x} + b) = 1  \\
+        \end{cases}
+        %     \\
+        % \end{cases}
+        \\
+        & \Updownarrow
+        \\
+        % =========================
+        L  \leq  R_0 + ((\mathbf{a}^T \mathbf{x} + b) - 0) \cdot |M|
+        % \\
+        % \land &
+        % \\
+        \qquad & \land \qquad
+        L  \leq  R_1 + (1 - (\mathbf{a}^T \mathbf{x} + b)) \cdot |M|
+        % =========================
+    \end{aligned}
+\end{equation}
+
+
+% ======================
+\subsection{}
 
 
 \begin{equation}
