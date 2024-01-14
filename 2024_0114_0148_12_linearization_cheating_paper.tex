@@ -1,0 +1,156 @@
+
+% \documentclass[twocolumn]{ctexart}
+\documentclass[onecolumn]{ctexart}
+
+\usepackage{geometry}
+\geometry{a4paper,left=1cm,right=1cm,top=1.4cm,bottom=1cm}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{xcolor}
+\usepackage{graphicx}  % for \resizebox
+\usepackage{arydshln}
+
+
+
+\usepackage{hyperref}
+\hypersetup{
+    pdfstartview={XYZ null null 1.25},  % XYZ <left> <top> <zoom> : Sets a coordinate and a zoom factor. If anyone is null, the source link value is used.
+    % pdfstartview={FitH  null},           % FitH <top> : fit the width of the page to the window
+    pdfpagelayout=OneColumn,  % SinglePage/OneColumn/...
+    % 
+    bookmarks=true,
+    bookmarksnumbered=true,
+    bookmarksopen=true,  % whether bookmark tree is expanded when opening pdf
+    pdfpagemode=UseOutlines,  % UseOutlines: show bookmarks panel when opening pdf
+    % 
+    linkbordercolor=blue,
+}
+
+
+
+\begin{document}
+
+\leftline{2024\_0114\_0148\_12}
+
+
+% IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+\vspace{30pt}
+\section{Preliminaries}
+
+\begin{itemize}
+
+    \item  \textbf{hypothesis_truth}? \qquad
+        {\color{green} always\_leq}  \quad  |  \quad
+        {\color{red  } always\_geq}  \quad  |  \quad
+        {\color{red  } neither}  % \quad  |  \quad
+
+    \item  \textbf{hypothesis_direction}? \qquad
+        {\color{gray} ignored}      \quad  |  \quad
+        {\color{gray} single_side}  \quad  |  \quad
+        {\color{green} eq}   \quad  |  \quad
+        {\color{red  } neq}  \quad  |  \quad
+        {\color{red  } leq}  \quad  |  \quad
+        {\color{red  } geq}  \quad  |  \quad
+        {\color{red  } le}   \quad  |  \quad
+        {\color{red  } ge}   % \quad  |  \quad
+
+    \item  \textbf{hypothesis_variable_side_variable}?
+        {\color{green} constant}  \quad  |  \quad
+        {\color{green} variable}  \quad  |  \quad
+
+    \item  \textbf{hypothesis_variable_side_range}? \qquad
+        {\color{green} binary}   \quad  |  \quad
+        {\color{green} integer}  \quad  |  \quad
+        {\color{green} real}     \quad  |  \quad
+
+    \item  \textbf{hypothesis_constant_side_variable}?
+        {\color{green} constant}  \quad  |  \quad
+        {\color{gray} variable}  \quad  |  \quad
+        
+    \item  \textbf{hypothesis_constant_side_range}? \qquad
+        {\color{green} binary}   \quad  |  \quad
+        {\color{green} integer}  \quad  |  \quad
+        {\color{green} real}     \quad  |  \quad
+
+
+
+    \item  \textbf{conclusion_direction}? \qquad
+        {\color{red} ignored}      \quad  |  \quad
+        {\color{red} single_side}  \quad  |  \quad
+        {\color{green} eq}   \quad  |  \quad
+        {\color{red  } neq}  \quad  |  \quad
+        {\color{red  } leq}  \quad  |  \quad
+        {\color{red  } geq}  \quad  |  \quad
+        {\color{red  } le}   \quad  |  \quad
+        {\color{red  } ge}   % \quad  |  \quad
+
+    \item  \textbf{conclusion_L_side_variable}?
+        {\color{green} constant}  \quad  |  \quad
+        {\color{green} variable}  \quad  |  \quad
+
+    \item  \textbf{conclusion_L_side_range}? \qquad
+        {\color{green} binary}   \quad  |  \quad
+        {\color{green} integer}  \quad  |  \quad
+        {\color{green} real}     \quad  |  \quad
+
+    \item  \textbf{conclusion_R_side_variable}?
+        {\color{green} constant}  \quad  |  \quad
+        {\color{green} variable}  \quad  |  \quad
+
+    \item  \textbf{conclusion_R_side_range}? \qquad
+        {\color{green} binary}   \quad  |  \quad
+        {\color{green} integer}  \quad  |  \quad
+        {\color{green} real}     \quad  |  \quad
+
+\end{itemize}
+
+
+\begin{equation}
+    \begin{aligned}
+        % \label{eq:}
+        &
+        \begin{cases}
+            L,  & x = 0  \\
+            R,  & x = 1  \\
+        \end{cases}
+        \\
+        &
+        L + x \cdot R
+    \end{aligned}
+\end{equation}
+
+
+\begin{equation}
+    \begin{aligned}
+        % \label{eq:}
+    \end{aligned}
+\end{equation}
+
+
+\begin{equation}
+    \begin{aligned}
+        % \label{eq:}
+    \end{aligned}
+\end{equation}
+
+
+\begin{equation}
+    \begin{aligned}
+        % \label{eq:}
+    \end{aligned}
+\end{equation}
+
+
+\begin{equation}
+    \begin{aligned}
+        % \label{eq:}
+    \end{aligned}
+\end{equation}
+
+
+
+
+
+
+\end{document}
+
